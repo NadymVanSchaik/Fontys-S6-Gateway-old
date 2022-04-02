@@ -1,19 +1,39 @@
 version: '3'
 services:
-  api:
+  node-app:
+    restart: on-failure
     image: gateway
-    build: .
-    networks:
-      - backend
+    build: 
+      context: ./app
     ports:
       - "3000:3000"
-
-  web-cli:
-    image: gateway
+    volumes:
+      - ./:/usr/src/app
     networks:
-      - backend
-    command: sh
+      - rabbitmq_nodejs
+  
+  nginx-gateway:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - rabbitmq_nodejs
+    depends_on:
+      - node-app
 
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5673:5672
+        - 15673:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_nodejs
 networks:
-  backend:
+  rabbitmq_nodejs:
     driver: bridge
