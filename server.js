@@ -4,7 +4,7 @@ const cors = require('cors');
 const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
 
 const config = {
-    name: 'sample-express-app',
+    name: 'gateway',
     port: 3000,
     host: '0.0.0.0',
 };
