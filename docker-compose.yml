@@ -2,20 +2,21 @@ version: '3'
 services:
   node-app:
     restart: on-failure
+    tty: true
+    stdin_open: true
     image: gateway
     build: 
       context: ./app
     ports:
       - "3000:3000"
     volumes:
-      - ./:/usr/src/app
+      - ./app:/usr/src/app
     networks:
       - rabbitmq_nodejs
     environment:
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
   
   nginx-gateway:
-    restart: always
     build:
       context: ./nginx
     ports:

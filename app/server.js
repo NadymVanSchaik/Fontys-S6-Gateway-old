@@ -53,7 +53,6 @@ app.get('/sendMessage', (req, res) => {
         });
         setTimeout(function() {
             connection.close();
-            process.exit(0);
         }, 500);
     });
 });
