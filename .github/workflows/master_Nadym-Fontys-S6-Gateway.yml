@@ -22,7 +22,6 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: registry.gitlab.com
         username: ${{ secrets.AzureAppService_ContainerUsername_7b5852a302044732967f88a5ec6b8a45 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_e0c19723af224c7aafab29494fdfd062 }}
 
