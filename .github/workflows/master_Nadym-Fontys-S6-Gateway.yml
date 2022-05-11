@@ -51,4 +51,4 @@ jobs:
         app-name: 'Nadym-Fontys-S6-Gateway'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6490176cf3174ecc812188cd925647b5 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7b5852a302044732967f88a5ec6b8a45 }}/Fontys-S6-gateway:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7b5852a302044732967f88a5ec6b8a45 }}/fontys-s6-gateway:${{ github.sha }}'
