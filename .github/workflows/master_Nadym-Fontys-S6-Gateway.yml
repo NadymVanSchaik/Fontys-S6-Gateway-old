@@ -31,9 +31,8 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
-        context: .
         push: true
-        tags: nadymvschaik/fontys-s6-gateway:${{ github.sha }}
+        tags: ${{ secrets.AzureAppService_ContainerUsername_7b5852a302044732967f88a5ec6b8a45 }}/fontys-s6-gateway:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
