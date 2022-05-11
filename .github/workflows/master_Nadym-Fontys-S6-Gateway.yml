@@ -22,7 +22,7 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://mcr.microsoft.com/
+        registry: https://hub.docker.com/repository/docker/nadymvschaik/fontys-s6-gateway
         username: ${{ secrets.AzureAppService_ContainerUsername_945cd0cd3a504a3494a03802f2669cfd }}
         password: ${{ secrets.AzureAppService_ContainerPassword_834edcf89a044ccd86f2022119e577e2 }}
 
