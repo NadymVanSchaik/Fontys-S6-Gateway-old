@@ -28,6 +28,7 @@ app.listen(config.port, config.host, (e)=> {
 });
 
 var amqp = require('amqplib/callback_api');
+//TODO to be changed to Azure directive 
 const amqpUrl = process.env.AMQP_URL || 'amqp://localhost:5673';
 
 app.get('/sendMessage', (req, res) => {
