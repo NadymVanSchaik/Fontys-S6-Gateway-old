@@ -6,11 +6,11 @@ services:
     stdin_open: true
     image: gateway
     build: 
-      context: ./app
+      context: ./
     ports:
       - "3000:3000"
     volumes:
-      - ./app:/usr/src/app
+      - ./:/usr/src/app
     networks:
       - rabbitmq_nodejs
     environment:
